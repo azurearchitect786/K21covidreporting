@@ -1,0 +1,9 @@
+{
+	"name": "K21-covid-rep-adf-19",
+	"location": "centralus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "eb8388b9-cf72-4c36-a98f-75e1065a99eb",
+		"tenantId": "61cfbac0-31b5-4fa9-9f52-4b718e70bd9e"
+	}
+}
