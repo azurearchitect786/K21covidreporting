@@ -1,0 +1,107 @@
+{
+	"name": "df_transform_death_cases",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "df_raw_cases_and_deaths",
+						"type": "DatasetReference"
+					},
+					"name": "CasesAndDeathSource"
+				},
+				{
+					"dataset": {
+						"referenceName": "df_country_lookup",
+						"type": "DatasetReference"
+					},
+					"name": "CountryLookup"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "ds_processed_cases_and_deaths",
+						"type": "DatasetReference"
+					},
+					"name": "ProcessedData"
+				}
+			],
+			"transformations": [
+				{
+					"name": "FilterEuropeOnly",
+					"description": "Filtering rows using expressions on columns 'continent' "
+				},
+				{
+					"name": "SelectOnlyRequiredFields",
+					"description": "dropped continent, report-14 columns added a rule based mapping to create reported date"
+				},
+				{
+					"name": "LookupCountry"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          country as string,",
+				"          country_code as string,",
+				"          continent as string,",
+				"          population as string,",
+				"          indicator as string,",
+				"          daily_count as string,",
+				"          date as string,",
+				"          rate_14_day as string,",
+				"          source as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> CasesAndDeathSource",
+				"source(output(",
+				"          country as string,",
+				"          country_code_2_digit as string,",
+				"          country_code_3_digit as string,",
+				"          continent as string,",
+				"          population as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> CountryLookup",
+				"CasesAndDeathSource filter(continent == 'Europe') ~> FilterEuropeOnly",
+				"FilterEuropeOnly select(mapColumn(",
+				"          country,",
+				"          country_code,",
+				"          population,",
+				"          indicator,",
+				"          daily_count,",
+				"          date,",
+				"          source,",
+				"          each(match(name=='date'),",
+				"               'reported'+'_date' = $$)",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> SelectOnlyRequiredFields",
+				"SelectOnlyRequiredFields, CountryLookup lookup(SelectOnlyRequiredFields@country == CountryLookup@country,",
+				"     multiple: true,",
+				"     broadcast: 'auto')~> LookupCountry",
+				"LookupCountry sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     mapColumn(",
+				"          country_code,",
+				"          population = SelectOnlyRequiredFields@population,",
+				"          indicator,",
+				"          daily_count,",
+				"          country = CountryLookup@country,",
+				"          country_code_2_digit,",
+				"          country_code_3_digit,",
+				"          continent,",
+				"          population = CountryLookup@population",
+				"     )) ~> ProcessedData"
+			]
+		}
+	}
+}
