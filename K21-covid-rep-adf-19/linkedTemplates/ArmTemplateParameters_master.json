@@ -17,6 +17,9 @@
 		"demobircks_accessToken": {
 			"value": ""
 		},
+		"ls_sql_covid_db_password": {
+			"value": ""
+		},
 		"is_http_opendata_ecdc_europa_eu_properties_typeProperties_url": {
 			"value": "https://raw.githubusercontent.com/hbuddana/Azure_Data_Factory_COVID-19_Reporting/refs/heads/main/dataset/ds_ecdc_file_list.json"
 		},
@@ -25,6 +28,15 @@
 		},
 		"demobircks_properties_typeProperties_existingClusterId": {
 			"value": "0502-114153-nuh1s0nq"
+		},
+		"ls_sql_covid_db_properties_typeProperties_server": {
+			"value": "k21-covid-rep-srv-19.database.windows.net"
+		},
+		"ls_sql_covid_db_properties_typeProperties_database": {
+			"value": "k21-covid-db-19"
+		},
+		"ls_sql_covid_db_properties_typeProperties_userName": {
+			"value": "sqladmin"
 		},
 		"containerUri": {
 			"value": ""
