@@ -1,0 +1,12 @@
+{
+	"name": "httpdiabetesURL",
+	"properties": {
+		"annotations": [],
+		"type": "HttpServer",
+		"typeProperties": {
+			"url": "https://raw.githubusercontent.com/ammarasmro/mslearn-dp100/refs/heads/main/data/diabetes.csv",
+			"enableServerCertificateValidation": true,
+			"authenticationType": "Anonymous"
+		}
+	}
+}
