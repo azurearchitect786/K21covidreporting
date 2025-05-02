@@ -15,6 +15,14 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'ls_adls_covidrepdl'"
 		},
+		"ls_db_covid_cluster_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'ls_db_covid_cluster'"
+		},
+		"demobircks_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'demobircks'"
+		},
 		"is_http_opendata_ecdc_europa_eu_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://raw.githubusercontent.com/hbuddana/Azure_Data_Factory_COVID-19_Reporting/refs/heads/main/dataset/ds_ecdc_file_list.json"
@@ -22,6 +30,10 @@
 		"ls_adls_covidrepdl_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://k21covidrepadls19.dfs.core.windows.net/"
+		},
+		"demobircks_properties_typeProperties_existingClusterId": {
+			"type": "string",
+			"defaultValue": "0502-114153-nuh1s0nq"
 		},
 		"containerUri": {
 			"type": "string",
@@ -56,11 +68,20 @@
 					"ls_adls_covidrepdl_accountKey": {
 						"value": "[parameters('ls_adls_covidrepdl_accountKey')]"
 					},
+					"ls_db_covid_cluster_accessToken": {
+						"value": "[parameters('ls_db_covid_cluster_accessToken')]"
+					},
+					"demobircks_accessToken": {
+						"value": "[parameters('demobircks_accessToken')]"
+					},
 					"is_http_opendata_ecdc_europa_eu_properties_typeProperties_url": {
 						"value": "[parameters('is_http_opendata_ecdc_europa_eu_properties_typeProperties_url')]"
 					},
 					"ls_adls_covidrepdl_properties_typeProperties_url": {
 						"value": "[parameters('ls_adls_covidrepdl_properties_typeProperties_url')]"
+					},
+					"demobircks_properties_typeProperties_existingClusterId": {
+						"value": "[parameters('demobircks_properties_typeProperties_existingClusterId')]"
 					}
 				}
 			},
