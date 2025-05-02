@@ -7,6 +7,10 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "K21-covid-rep-adf-19"
 		},
+		"demobircks_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'demobircks'"
+		},
 		"ls_ablob_covidrepsa_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'ls_ablob_covidrepsa'"
@@ -19,13 +23,13 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accessToken' of 'ls_db_covid_cluster'"
 		},
-		"demobircks_accessToken": {
-			"type": "secureString",
-			"metadata": "Secure string for 'accessToken' of 'demobircks'"
-		},
 		"ls_sql_covid_db_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'ls_sql_covid_db'"
+		},
+		"demobircks_properties_typeProperties_existingClusterId": {
+			"type": "string",
+			"defaultValue": "0502-114153-nuh1s0nq"
 		},
 		"is_http_opendata_ecdc_europa_eu_properties_typeProperties_url": {
 			"type": "string",
@@ -34,10 +38,6 @@
 		"ls_adls_covidrepdl_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://k21covidrepadls19.dfs.core.windows.net/"
-		},
-		"demobircks_properties_typeProperties_existingClusterId": {
-			"type": "string",
-			"defaultValue": "0502-114153-nuh1s0nq"
 		},
 		"ls_sql_covid_db_properties_typeProperties_server": {
 			"type": "string",
@@ -50,6 +50,10 @@
 		"ls_sql_covid_db_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "sqladmin"
+		},
+		"httpdiabetesURL_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://raw.githubusercontent.com/ammarasmro/mslearn-dp100/refs/heads/main/data/diabetes.csv"
 		},
 		"containerUri": {
 			"type": "string",
@@ -78,6 +82,9 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
+					"demobircks_accessToken": {
+						"value": "[parameters('demobircks_accessToken')]"
+					},
 					"ls_ablob_covidrepsa_connectionString": {
 						"value": "[parameters('ls_ablob_covidrepsa_connectionString')]"
 					},
@@ -87,20 +94,17 @@
 					"ls_db_covid_cluster_accessToken": {
 						"value": "[parameters('ls_db_covid_cluster_accessToken')]"
 					},
-					"demobircks_accessToken": {
-						"value": "[parameters('demobircks_accessToken')]"
-					},
 					"ls_sql_covid_db_password": {
 						"value": "[parameters('ls_sql_covid_db_password')]"
+					},
+					"demobircks_properties_typeProperties_existingClusterId": {
+						"value": "[parameters('demobircks_properties_typeProperties_existingClusterId')]"
 					},
 					"is_http_opendata_ecdc_europa_eu_properties_typeProperties_url": {
 						"value": "[parameters('is_http_opendata_ecdc_europa_eu_properties_typeProperties_url')]"
 					},
 					"ls_adls_covidrepdl_properties_typeProperties_url": {
 						"value": "[parameters('ls_adls_covidrepdl_properties_typeProperties_url')]"
-					},
-					"demobircks_properties_typeProperties_existingClusterId": {
-						"value": "[parameters('demobircks_properties_typeProperties_existingClusterId')]"
 					},
 					"ls_sql_covid_db_properties_typeProperties_server": {
 						"value": "[parameters('ls_sql_covid_db_properties_typeProperties_server')]"
@@ -110,6 +114,9 @@
 					},
 					"ls_sql_covid_db_properties_typeProperties_userName": {
 						"value": "[parameters('ls_sql_covid_db_properties_typeProperties_userName')]"
+					},
+					"httpdiabetesURL_properties_typeProperties_url": {
+						"value": "[parameters('httpdiabetesURL_properties_typeProperties_url')]"
 					}
 				}
 			},

@@ -5,6 +5,9 @@
 		"factoryName": {
 			"value": "K21-covid-rep-adf-19"
 		},
+		"demobircks_accessToken": {
+			"value": ""
+		},
 		"ls_ablob_covidrepsa_connectionString": {
 			"value": ""
 		},
@@ -14,20 +17,17 @@
 		"ls_db_covid_cluster_accessToken": {
 			"value": ""
 		},
-		"demobircks_accessToken": {
-			"value": ""
-		},
 		"ls_sql_covid_db_password": {
 			"value": ""
+		},
+		"demobircks_properties_typeProperties_existingClusterId": {
+			"value": "0502-114153-nuh1s0nq"
 		},
 		"is_http_opendata_ecdc_europa_eu_properties_typeProperties_url": {
 			"value": "https://raw.githubusercontent.com/hbuddana/Azure_Data_Factory_COVID-19_Reporting/refs/heads/main/dataset/ds_ecdc_file_list.json"
 		},
 		"ls_adls_covidrepdl_properties_typeProperties_url": {
 			"value": "https://k21covidrepadls19.dfs.core.windows.net/"
-		},
-		"demobircks_properties_typeProperties_existingClusterId": {
-			"value": "0502-114153-nuh1s0nq"
 		},
 		"ls_sql_covid_db_properties_typeProperties_server": {
 			"value": "k21-covid-rep-srv-19.database.windows.net"
@@ -37,6 +37,9 @@
 		},
 		"ls_sql_covid_db_properties_typeProperties_userName": {
 			"value": "sqladmin"
+		},
+		"httpdiabetesURL_properties_typeProperties_url": {
+			"value": "https://raw.githubusercontent.com/ammarasmro/mslearn-dp100/refs/heads/main/data/diabetes.csv"
 		}
 	}
 }
