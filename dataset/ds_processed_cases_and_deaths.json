@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "hospital_admissions_daily.csv",
+				"fileName": "part-00000-424ba8f2-6bbd-4901-a958-db1837d7d19f-c000.csv",
 				"fileSystem": "processed"
 			},
 			"columnDelimiter": ",",
